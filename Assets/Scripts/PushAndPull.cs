@@ -11,19 +11,22 @@ public class PushAndPull : MonoBehaviour
 
     public int click = 1;
 
+    // player things
     public FirstPersonCamera fpc;
         public Movement movement;
         public CustomGravity cg;
             public Rigidbody rb;
             public Collider playerCol;
 
+    // getting a list of all the possible behaviours/actions that are possible
     public List<MonoBehaviour> behaviors;
         [SerializeField] private bool behaviorActivated;
         public GrappleAction ga;
         public RotateAction ra;
         public SlideAction sa;
         public ScaleAction sca;
-        public BouncepadAction ba;
+
+        public ElevatorAction ea;
     
     public Camera cam;
         public GameObject cameraPivot;
@@ -55,7 +58,7 @@ public class PushAndPull : MonoBehaviour
         ra = GetComponent<RotateAction>();
         sa = GetComponent<SlideAction>();
         sca = GetComponent<ScaleAction>();
-        ba = GetComponent<BouncepadAction>();
+        ea = GetComponent<ElevatorAction>();
 
     }
 
@@ -73,7 +76,7 @@ public class PushAndPull : MonoBehaviour
             ra.enabled = false;
             sa.enabled = false;
             sca.enabled = false;
-            ba.enabled = false;
+            ea.enabled = false;
 
         }
 
@@ -118,39 +121,40 @@ public class PushAndPull : MonoBehaviour
         var objectFound = false;
 
         // if grapple point found
-        if (hitObject.GetComponent<GrapplePoint>()) {
+        // if (hitObject.GetComponent<GrapplePoint>()) {
 
-            objectFound = true;
-            target = hitObject;
+        //     objectFound = true;
+        //     target = hitObject;
 
-            if (Input.GetMouseButtonDown(click)) {
+        //     if (Input.GetMouseButtonDown(click)) {
 
-                behaviorActivated = true;
-                ga.target = target;
-                ga.enabled = true;
+        //         behaviorActivated = true;
+        //         ga.target = target;
+        //         ga.enabled = true;
 
-            }
+        //     }
 
-        }
+        // }
 
-        // if rotating component found
-        if (hitObject.GetComponent<RotateComponent>()) {
+        // // if rotating component found
+        // if (hitObject.GetComponent<RotateComponent>()) {
 
-            objectFound = true;
-            target = hitObject;
+        //     objectFound = true;
+        //     target = hitObject;
 
-            if (Input.GetMouseButtonDown(click)) {
+        //     if (Input.GetMouseButtonDown(click)) {
 
-                behaviorActivated = true;
-                ra.target = target;
-                ra.enabled = true;
+        //         behaviorActivated = true;
+        //         ra.target = target;
+        //         ra.enabled = true;
 
-            }
+        //     }
 
-        }
+        // }
 
         // if rotating component found
         if (hitObject.GetComponent<SlideComponent>()) {
+            Debug.Log("WE ARE IN THIS IF STATEMENT FOR SLIDE COMPONENT");
 
             objectFound = true;
             target = hitObject;
@@ -165,33 +169,35 @@ public class PushAndPull : MonoBehaviour
 
         }
 
-        // if rotating component found
-        if (hitObject.GetComponent<ScaleComponent>()) {
+        // // if rotating component found
+        // if (hitObject.GetComponent<ScaleComponent>()) {
 
+        //     objectFound = true;
+        //     target = hitObject;
+
+        //     if (Input.GetMouseButtonDown(click)) {
+
+        //         behaviorActivated = true;
+        //         sca.target = target;
+        //         sca.enabled = true;
+
+        //     }
+
+        // }
+
+        if (hitObject.GetComponent<ElevatorComponent>()) {
+
+            // Debug.Log("WE ARE IN THIS IF STATEMENT FOR ELEVATOR COMPONENT");
             objectFound = true;
             target = hitObject;
 
             if (Input.GetMouseButtonDown(click)) {
 
-                behaviorActivated = true;
-                sca.target = target;
-                sca.enabled = true;
-
-            }
-
-        }
-
-        // if bouncepad component found
-        if (hitObject.GetComponent<BouncepadComponent>()) {
-
-            objectFound = true;
-            target = hitObject;
-
-            if (Input.GetMouseButtonDown(click)) {
+                Debug.Log("the button has been clicked");
 
                 behaviorActivated = true;
-                ba.target = target;
-                ba.enabled = true;
+                ea.target = target;
+                ea.enabled = true;
 
             }
 
@@ -245,7 +251,7 @@ public class PushAndPull : MonoBehaviour
             ra.enabled = false;
             sa.enabled = false;
             sca.enabled = false;
-            ba.enabled = false;
+            ea.enabled = false;
             EnableControl();
 
         }

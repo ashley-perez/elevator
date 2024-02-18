@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45330018, g: 0.44690567, b: 0.4400544, a: 1}
+  m_IndirectSpecularColor: {r: 0.45330048, g: 0.44690603, b: 0.4400546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3604,6 +3604,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2892251589173072278, guid: 90537c33c4f1f314cb6235cc9417d80b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5685266887198424528, guid: 90537c33c4f1f314cb6235cc9417d80b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.5
@@ -12023,6 +12027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2913748502147578982, guid: 455fa718d370c4d4b8199103b631d0ab, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3268210655667613722, guid: 455fa718d370c4d4b8199103b631d0ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12071,6 +12079,10 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1421538448}
+    - target: {fileID: 5979475805123953141, guid: 455fa718d370c4d4b8199103b631d0ab, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6887197564569139510, guid: 455fa718d370c4d4b8199103b631d0ab, type: 3}
       propertyPath: pullForce
       value: 0.35
